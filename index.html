@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" id="kotha-stylesheet-css"
+        href="https://www.dreamwings.cn/wp-content/themes/kotha/style.css?ver=5.1.1" type="text/css" media="all">
+
+    <script type="text/javascript"
+        src="https://static.dreamwings.cn/wp-includes/js/jquery/jquery.js?ver=1.12.4"></script>
+
+
+    <style type="text/css" id="custom-background-css">
+        body {
+            margin: 200px 200px;
+            padding: 300px 300px 300px 300px
+        }
+
+        body.custom-background {
+            background-image: url("https://static.dreamwings.cn/wp-content/uploads/2016/08/back.jpg");
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+
+</head>
+
+<body class="page-template-default page page-id-2242 custom-background">
+
+    <article id="post-2242" class="post-2242 page type-page status-publish hentry">
+        <div class="padding-content">
+            <div class="entry-content">
+                <style>
+                    body {
+                        margin: 0;
+                        padding: 0
+                    }
+
+                    .wrap {
+                        text-align: center;
+                        font-size: 14px;
+                        font-weight: bolder
+                    }
+                </style>
+
+                <div class="wrap">
+                    <p>人生只有 900 个月</p>
+                    <p><canvas class="myLife" width="300px" height="300px"></canvas></p>
+                    <p>我的命运</p>
+                    <p>还有 <span class="im0qianqian">100</span>% 掌握在自己的手中</p>
+                </div>
+                <p>
+                    <script>
+                        var birthday = new Date(2000, 3, 22); var live = (new Date - birthday) / 2592000000; var range = [0, live - 1]; for (var i = 0; 30 > i; i++) { for (var j = 0; 30 > j; j++) { var current = 30 * i + j, canvas = document.getElementsByClassName("myLife")[0], ctx = canvas.getContext("2d"); current >= range[0] && current <= range[1] ? ctx.fillStyle = "#ccc" : ctx.fillStyle = "#99CCFF", ctx.fillRect(10 * j + 1, 10 * i + 1, 8, 8), ctx.strokeStyle = "#000", ctx.lineWidth = 1, ctx.strokeRect(10 * j, 10 * i, 10, 10) } } setInterval(function () { if ($("span").hasClass("im0qianqian")) { document.getElementsByClassName("im0qianqian")[0].innerHTML = (100 - (new Date - birthday) / 2592000000 / 9).toFixed(9) } }, 300);   
+                    </script>
+                </p>
+            </div>
+        </div>
+    </article>
+
+</html>
