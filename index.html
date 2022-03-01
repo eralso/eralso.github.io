@@ -2,15 +2,10 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" id="kotha-stylesheet-css" href="./style.css?ver=5.1.1" type="text/css" media="all">
-
-    <script type="text/javascript" src="./jquery.js?ver=1.12.4"></script>
-
-
-    <style type="text/css" id="custom-background-css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
         body.custom-background {
-            background-image: url("./bg.jpg");
+            background-color: rgb(18, 22, 33);
             background-position: center center;
             background-size: cover;
             background-repeat: no-repeat;
@@ -18,65 +13,53 @@
         }
 
         .vi {
-            margin: 50px auto 60px;
-            max-width: 750px;
+            margin: 90px auto 0;
+            max-width: 780px;
+            text-align: center;
+        }
+
+        @media (max-width: 767px) {
+            .vi {
+                margin-top: 50px;
+            }
+        }
+
+        .font_color {
+            color: #6C7486;
         }
     </style>
-
 </head>
 
-<body class="page-template-default page page-id-2242 custom-background">
-    <div class="vi">
-        <article id="post-2242" class="post-2242 page type-page status-publish hentry">
-            <div class="padding-content">
-                <header class="entry-header">
-                    <h1 class="entry-title" style="text-align: center;">Eralso</h1>
-                </header>
+<body class="custom-background">
+    <div class="vi font_color">
+        <h1 style="font-size:xx-large; opacity: 1; top: 0px; color: #E4ECFA;">Eralso</h1>
+        <p><a href="https://github.com/eralso"><img alt="eralso's Github" width="32px"
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" /></a></p>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+            }
 
-                <p align="center">
-                    <a href="https://github.com/eralso">
-                        <img alt="eralso's Github" width="22px" style="text-align: center;"
-                            src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" />
-                    </a>
-                </p>
+            .wrap {
+                text-align: center;
+                font-size: 14px;
+                font-weight: bolder
+            }
+        </style>
+        <div class="wrap">
+            <p>人生只有 900 个月</p>
+            <p><canvas class="myLife" width="300px" height="300px"></canvas></p>
+            <p>我的命运</p>
+            <p>还有 <span class="eralso">100</span>% 掌握在自己的手中</p>
+        </div>
+        <script>
+            var birthday = new Date(2000, 3, 22); var live = (new Date - birthday) / 2592000000; var range = [0, live - 1]; for (var i = 0; 30 > i; i++) { for (var j = 0; 30 > j; j++) { var current = 30 * i + j, canvas = document.getElementsByClassName("myLife")[0], ctx = canvas.getContext("2d"); current >= range[0] && current <= range[1] ? ctx.fillStyle = "#ccc" : ctx.fillStyle = "#99CCFF", ctx.fillRect(10 * j + 1, 10 * i + 1, 8, 8), ctx.strokeStyle = "#000", ctx.lineWidth = 1, ctx.strokeRect(10 * j, 10 * i, 10, 10) } } setInterval(function () { document.getElementsByClassName("eralso")[0].innerHTML = (100 - (new Date - birthday) / 2592000000 / 9).toFixed(9) }, 300); 
+        </script>
 
-                <br />
-
-                <p align="center">
-                    ✨ I am a senior student majoring in Computer Science 👨‍💻.
-                </p>
-
-                <br />
-
-                <div class="entry-content">
-                    <style>
-                        body {
-                            margin: 0;
-                            padding: 0
-                        }
-
-                        .wrap {
-                            text-align: center;
-                            font-size: 14px;
-                            font-weight: bolder
-                        }
-                    </style>
-
-                    <div class="wrap">
-                        <p>人生只有 900 个月</p>
-                        <p><canvas class="myLife" width="300px" height="300px"></canvas></p>
-                        <p>我的命运</p>
-                        <p>还有 <span class="im0qianqian">100</span>% 掌握在自己的手中</p>
-                        <br />
-                    </div>
-                    <p>
-                        <script>
-                            var birthday = new Date(2000, 3, 22); var live = (new Date - birthday) / 2592000000; var range = [0, live - 1]; for (var i = 0; 30 > i; i++) { for (var j = 0; 30 > j; j++) { var current = 30 * i + j, canvas = document.getElementsByClassName("myLife")[0], ctx = canvas.getContext("2d"); current >= range[0] && current <= range[1] ? ctx.fillStyle = "#ccc" : ctx.fillStyle = "#99CCFF", ctx.fillRect(10 * j + 1, 10 * i + 1, 8, 8), ctx.strokeStyle = "#000", ctx.lineWidth = 1, ctx.strokeRect(10 * j, 10 * i, 10, 10) } } setInterval(function () { if ($("span").hasClass("im0qianqian")) { document.getElementsByClassName("im0qianqian")[0].innerHTML = (100 - (new Date - birthday) / 2592000000 / 9).toFixed(9) } }, 300);   
-                        </script>
-                    </p>
-                </div>
-            </div>
-        </article>
     </div>
+
+
+</body>
 
 </html>
