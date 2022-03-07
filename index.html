@@ -35,8 +35,6 @@
 <body class="custom-background">
     <div class="vi font_color">
         <h1 style="font-size:xx-large; opacity: 1; top: 0px; color: #E4ECFA;">Eralso</h1>
-        <p><a href="https://github.com/eralso"><img alt="eralso's Github" width="32px"
-                    src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" /></a></p>
         <style>
             body {
                 margin: 0;
@@ -55,6 +53,8 @@
             <p>我的命运</p>
             <p>还有 <span class="eralso">100</span>% 掌握在自己的手中</p>
         </div>
+        <p><a href="https://github.com/eralso"><img alt="eralso's Github" width="32px"
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" /></a></p>
         <script>
             var birthday = new Date(2000, 3, 22); var live = (new Date - birthday) / 2592000000; var range = [0, live - 1]; for (var i = 0; 30 > i; i++) { for (var j = 0; 30 > j; j++) { var current = 30 * i + j, canvas = document.getElementsByClassName("myLife")[0], ctx = canvas.getContext("2d"); current >= range[0] && current <= range[1] ? ctx.fillStyle = "#ccc" : ctx.fillStyle = "#99CCFF", ctx.fillRect(10 * j + 1, 10 * i + 1, 8, 8), ctx.strokeStyle = "#000", ctx.lineWidth = 1, ctx.strokeRect(10 * j, 10 * i, 10, 10) } } setInterval(function () { document.getElementsByClassName("eralso")[0].innerHTML = (100 - (new Date - birthday) / 2592000000 / 9).toFixed(9) }, 300); 
         </script>
