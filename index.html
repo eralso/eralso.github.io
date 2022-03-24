@@ -1,138 +1,69 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="shortcut icon" href="./favicon.ico">
-    <title>eralso.github.io</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERALSO</title>
     <style>
-        body.custom-background {
-            background-color: #212121;
-/*             background-color: rgb(34, 39, 46); */
-            background-position: center center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .vi {
-            margin: 90px auto 0;
-            max-width: 780px;
+        .container {
+            background: linear-gradient(to right, #F8FFAE, #43C6AC);
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .demo {
+            font-size: 40px;
             text-align: center;
+            color: #fff;
+            font-weight: bolder;
+            letter-spacing: 3px;
         }
 
-        @media (max-width: 767px) {
-            .vi {
-                margin-top: 50px;
-            }
+        .text {
+            white-space: pre;
         }
 
-        .font_color {
-            color: #6C7486;
-        }
-        
-        /* From cssbuttons.io by @Cevorob */
-        button {
-            position: relative;
-            height: 50px;
-            padding: 0 30px;
-            border: 2px solid #000;
-            background: #e8e8e8;
-            user-select: none;
-            white-space: nowrap;
-            transition: all .05s linear;
-            font-family: inherit;
-        }
-
-        button:before,
-        button:after {
-            content: "";
-            position: absolute;
-            background: #e8e8e8;
-            transition: all .2s linear;
-        }
-
-        button:before {
-            width: calc(100% + 6px);
-            height: calc(100% - 16px);
-            top: 8px;
-            left: -3px;
-        }
-
-        button:after {
-            width: calc(100% - 16px);
-            height: calc(100% + 6px);
-            top: -3px;
-            left: 8px;
-        }
-
-        button:hover {
-            cursor: crosshair;
-        }
-
-        button:active {
-            transform: scale(0.95);
-        }
-
-        button:hover:before {
-            height: calc(100% - 32px);
-            top: 16px;
-        }
-
-        button:hover:after {
-            width: calc(100% - 32px);
-            left: 16px;
-        }
-
-        button span {
-            font-size: 15px;
-            z-index: 3;
-            position: relative;
-            font-weight: 600;
+        #poem_info {
+            font-size: 80%;
         }
     </style>
 </head>
 
-<body class="custom-background">
-    <div class="vi font_color">
-        <h1 style="font-size:xx-large; opacity: 1; top: 0px; color: #E4ECFA;">Eralso</h1>
-        <style>
-            body {
-                margin: 0;
-                padding: 0;
-            }
-
-            .wrap {
-                text-align: center;
-                font-size: 14px;
-                font-weight: bolder
-            }
-        </style>
-        <div class="wrap">
-            <p>人生只有 900 个月</p>
-            <p><canvas class="myLife" width="300px" height="300px"></canvas></p>
-            <p>我的命运</p>
-            <p>还有 <span class="eralso">100</span>% 掌握在自己的手中</p>
+<body>
+    <div class="container">
+        <div class="demo">
+            <span class="text"></span>
+            <div id="poem_info"></div>
         </div>
-<!--         <p><a href="https://github.com/eralso"><img alt="eralso's Github" width="32px"
-                    src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" />
-            </a></p> -->
-        
-        <br>
-        <a href="https://github.com/eralso">
-            <button>
-                <span> GITHUB
-                </span>
-            </button>
-        </a>
-        
-        <script>
-            var birthday = new Date(2000, 3, 22); var live = (new Date - birthday) / 2592000000; var range = [0, live - 1]; for (var i = 0; 30 > i; i++) { for (var j = 0; 30 > j; j++) { var current = 30 * i + j, canvas = document.getElementsByClassName("myLife")[0], ctx = canvas.getContext("2d"); current >= range[0] && current <= range[1] ? ctx.fillStyle = "#ccc" : ctx.fillStyle = "#99CCFF", ctx.fillRect(10 * j + 1, 10 * i + 1, 8, 8), ctx.strokeStyle = "#000", ctx.lineWidth = 1, ctx.strokeRect(10 * j, 10 * i, 10, 10) } } setInterval(function () { document.getElementsByClassName("eralso")[0].innerHTML = (100 - (new Date - birthday) / 2592000000 / 9).toFixed(9) }, 300); 
-        </script>
-
     </div>
 
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        jinrishici.load(function (result) {
+            var content = result.data.content
+            var info = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '《' + result.data.origin.title + '》'
+            document.querySelector("#poem_info").innerHTML = info
+            var typed6 = new Typed('.text', {
+                strings: [' ' + content],
+                typeSpeed: 80,
+                backSpeed: 40,
+                loop: true
+            });
+        });
 
+    </script>
 </body>
 
 </html>
