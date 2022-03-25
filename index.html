@@ -1,69 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ERALSO</title>
+    <title>fairyz</title>
     <style>
+        @import url("https://fonts.googleapis.com/css2?family=Jura:wght@500&display=swap");
+
         * {
-            margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            margin: 0;
+            font-family: "Jura", sans-serif;
         }
 
-        .container {
-            background: linear-gradient(to right, #F8FFAE, #43C6AC);
+        body {
             width: 100vw;
             height: 100vh;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, #4159d050, #ffcd7032, #c850c050);
+        }
+
+        .glass {
+            font-size: 200px;
+            font-weight: bold;
+            background: linear-gradient(to right, #ffd58780, #4159d050, #c850c050);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .card {
+            position: absolute;
+            width: 600px;
+            height: 350px;
+            border-radius: 20px;
+            background: linear-gradient(to right bottom,
+                    rgba(255, 255, 255, 0.6),
+                    rgba(255, 255, 255, 0.1));
+            backdrop-filter: blur(8px);
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.8);
+            border-left: 1px solid rgba(255, 255, 255, 0.8);
+
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 100px auto;
         }
 
-        .demo {
-            font-size: 40px;
+        .container {
+            font-size: 30px;
             text-align: center;
             color: #fff;
             font-weight: bolder;
             letter-spacing: 3px;
+            margin: auto;
         }
 
         .text {
-            white-space: pre;
+            /* white-space: pre; */
         }
 
         #poem_info {
             font-size: 80%;
+            margin-top: 20px;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="demo">
+    <div class="glass">
+        fairyz.xyz
+    </div>
+    <div id="c1" class="card">
+        <div id="t1" class="container">
             <span class="text"></span>
             <div id="poem_info"></div>
         </div>
+
+        <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+        <script>
+
+
+
+            jinrishici.load(function (result) {
+                var content = result.data.content
+                var info = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '《' + result.data.origin.title + '》'
+                document.querySelector("#poem_info").innerHTML = info
+
+                let div = document.querySelector("#c1")
+                let divWidth = div.getBoundingClientRect().width
+
+                let scale = divWidth / (Math.max(info.length, content.length) + 2)
+                fontsize = Math.min(40, parseInt(scale))
+                console.log("fontsize: " + fontsize)
+
+                document.getElementById("t1").style.fontSize = fontsize + "px"
+
+                var typed6 = new Typed('.text', {
+                    strings: [content],
+                    typeSpeed: 80,
+                    backSpeed: 40,
+                    loop: true
+                });
+            });
+        </script>
     </div>
 
-    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script>
-        jinrishici.load(function (result) {
-            var content = result.data.content
-            var info = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '《' + result.data.origin.title + '》'
-            document.querySelector("#poem_info").innerHTML = info
-            var typed6 = new Typed('.text', {
-                strings: [' ' + content],
-                typeSpeed: 80,
-                backSpeed: 40,
-                loop: true
-            });
-        });
-
-    </script>
 </body>
 
 </html>
