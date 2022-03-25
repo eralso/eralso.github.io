@@ -85,9 +85,6 @@
         <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
         <script>
-
-
-
             jinrishici.load(function (result) {
                 var content = result.data.content
                 var info = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '《' + result.data.origin.title + '》'
@@ -95,11 +92,8 @@
 
                 let div = document.querySelector("#c1")
                 let divWidth = div.getBoundingClientRect().width
-
                 let scale = divWidth / (Math.max(info.length, content.length) + 3)
                 fontsize = Math.min(40, parseInt(scale))
-                console.log("fontsize: " + fontsize)
-
                 document.getElementById("t1").style.fontSize = fontsize + "px"
 
                 var typed6 = new Typed('.text', {
