@@ -6,14 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eralso</title>
-    <link rel="stylesheet" href="./fonts/font.css">
+
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Jura:wght@500&display=swap");
+        /* 引入Jura字体 */
+        @import url("http://fonts.googleapis.com/css?family=Jura:200,300,400,500,600,700,800,900");
 
         * {
-            padding: 0;
             margin: 0;
-            font-family: "Jura", sans-serif;
+            padding: 0;
+            user-select: none;
         }
 
         body {
@@ -21,84 +22,212 @@
             height: 100vh;
             position: relative;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #0e141b;
-        }
-
-        .glass {
-            font-size: 200px;
-            font-weight: bold;
-            background: linear-gradient(to right, #ffd58780, #4159d050, #c850c050);
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-
-        .card {
-            position: absolute;
-            width: 600px;
-            height: 350px;
-            border-radius: 20px;
-            background: linear-gradient(to right bottom,
-                    rgba(255, 255, 255, 0.2),
-                    rgba(255, 255, 255, 0.1));
-            backdrop-filter: blur(8px);
-            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
-            display: flex;
             align-items: center;
             justify-content: center;
-            margin: 100px auto;
+            background-color: #0e141b;
+            color: #e0e6eb;
         }
 
         .container {
-            font-size: 30px;
+            font-family: 'Jura';
+            font-weight: 300;
             text-align: center;
-            color: #fff;
-            font-weight: bolder;
-            letter-spacing: 3px;
-            margin: auto;
+            letter-spacing: 8px;
+            overflow: hidden;
+            display: flex;
+            height: 100vh;
+            top: -30px;
+            position: absolute;
         }
 
-        #poem_info {
-            font-size: 80%;
-            margin-top: 20px;
+        #quoteContainer {
+            position: absolute;
+            bottom: 125px;
+            width: 530px;
+            padding: 15px 50px;
+            font-size: small;
+            text-align: center;
         }
+
+        .column,
+        .colon {
+            /* 行内块元素 */
+            display: inline-block;
+            font-size: 100px;
+            line-height: 100px;
+            /* 顶部对齐 */
+            vertical-align: top;
+        }
+
+        .column {
+            /* 设置过渡 */
+            transition: 0.3s;
+        }
+
+        /* 冒号 */
+        .colon {
+            /* 垂直居中（偏上一点） */
+            transform: translateY(calc(50vh - 55px));
+            /* 过渡 */
+            transition: 0.3s;
+        }
+
+        .colon::after {
+            content: ":";
+        }
+
+        /* 数字默认样式 */
+        .num {
+            opacity: 0.0;
+            transition: 0.5s;
+        }
+
+        /* 当前时间（正中间数字） */
+        .num.visible {
+            opacity: 1;
+            text-shadow: 1px 1px 0 #2c6299;
+        }
+
+        /* 邻近的 */
+        /* .num.near {
+            opacity: 0.35;
+        } */
+
+        /* 远的 */
+        /* .num.far {
+            opacity: 0.15;
+        } */
+
+        /* 更远的（opacity透明度） */
+        /* .num.distant {
+            opacity: 0.1;
+        } */
     </style>
 </head>
 
 <body>
-    <div class="glass">
-        liu'zhi'han
-    </div>
-    <div id="c1" class="card">
-        <div id="t1" class="container">
-            <span class="text"></span>
-            <div id="poem_info"></div>
+    <div class="container">
+        <div class="column">
+            <div class="num">0</div>
+            <div class="num">1</div>
+            <div class="num">2</div>
         </div>
-
-        <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-        <script>
-            jinrishici.load(function (result) {
-                var content = result.data.content
-                var info = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '《' + result.data.origin.title + '》'
-                document.querySelector("#poem_info").innerHTML = info
-
-                let div = document.querySelector("#c1")
-                let divWidth = div.getBoundingClientRect().width
-                let scale = divWidth / (Math.max(info.length, content.length) + 3)
-                fontsize = Math.min(40, parseInt(scale))
-                document.getElementById("t1").style.fontSize = fontsize + "px"
-
-                var typed6 = new Typed('.text', {
-                    strings: [content],
-                    typeSpeed: 80,
-                    backSpeed: 40,
-                    loop: true
-                });
-            });
-        </script>
+        <div class="column">
+            <div class="num">0</div>
+            <div class="num">1</div>
+            <div class="num">2</div>
+            <div class="num">3</div>
+            <div class="num">4</div>
+            <div class="num">5</div>
+            <div class="num">6</div>
+            <div class="num">7</div>
+            <div class="num">8</div>
+            <div class="num">9</div>
+        </div>
+        <div class="colon"></div>
+        <div class="column">
+            <div class="num">0</div>
+            <div class="num">1</div>
+            <div class="num">2</div>
+            <div class="num">3</div>
+            <div class="num">4</div>
+            <div class="num">5</div>
+        </div>
+        <div class="column">
+            <div class="num">0</div>
+            <div class="num">1</div>
+            <div class="num">2</div>
+            <div class="num">3</div>
+            <div class="num">4</div>
+            <div class="num">5</div>
+            <div class="num">6</div>
+            <div class="num">7</div>
+            <div class="num">8</div>
+            <div class="num">9</div>
+        </div>
+        <div class="colon"></div>
+        <div class="column">
+            <div class="num">0</div>
+            <div class="num">1</div>
+            <div class="num">2</div>
+            <div class="num">3</div>
+            <div class="num">4</div>
+            <div class="num">5</div>
+        </div>
+        <div class="column">
+            <div class="num">0</div>
+            <div class="num">1</div>
+            <div class="num">2</div>
+            <div class="num">3</div>
+            <div class="num">4</div>
+            <div class="num">5</div>
+            <div class="num">6</div>
+            <div class="num">7</div>
+            <div class="num">8</div>
+            <div class="num">9</div>
+        </div>
     </div>
+
+    <div id="quoteContainer">
+        <div id="quoteContent"></div>
+        <div id="quoteSource"></div>
+    </div>
+
+    <!-- 每日一句 -->
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    <script>
+        // 获取每日一句诗词API结果
+        jinrishici.load(function (result) {
+            document.querySelector("#quoteContent").innerHTML = '「 ' + result.data.content + '」'
+            document.querySelector("#quoteSource").innerHTML = '——' + result.data.origin.title
+        });
+
+        // 更新时间
+        // 单个数字的垂直偏移量
+        let size = 100;
+        // 把所有的.column转为数组
+        let columns = Array.from(document.getElementsByClassName('column'));
+        // 样式名数组
+        let class_list = ['visible', 'near', 'far', 'far', 'distant', 'distant'];
+        // true=24小时制，false=12小时制
+        let is_24_hour_clock = true;
+
+        // 获取时分秒
+        function getClock() {
+            let d = new Date();
+            let hour = is_24_hour_clock ? d.getHours() : d.getHours() % 12 || 12;
+            hour = hour < 10 ? '0' + hour : hour;
+            let minute = d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes();
+            let second = d.getSeconds() < 10 ? '0' + d.getSeconds() : d.getSeconds();
+            return hour + '' + minute + '' + second;
+        }
+        // 获取对应的样式名
+        function getClass(n, i) {
+            return class_list.find(function (_class, class_index) {
+                return i - class_index === n || i + class_index === n;
+            }) || '';
+        }
+        // 定时器，一秒执行一次
+        setInterval(() => {
+            // 获取时间
+            let c = getClock();
+            // 遍历所有.column
+            columns.forEach(function (ele, i) {
+                // 获取时分秒的每一位数，并转为整型
+                let n = parseInt(c[i]);
+                // 计算偏移量
+                let offset = -n * size;
+                // 设置每一位数的位置
+                ele.style.transform = 'translateY(calc(50vh + ' + offset + 'px - ' + (size / 2) + 'px))';
+                // 接下来设置样式
+                // 将.column的子元素（.num）转为数组，并遍历它
+                Array.from(ele.children).forEach(function (ele2, i2) {
+                    // 设置每一位数的样式（透明度改变）
+                    ele2.className = 'num ' + getClass(n, i2);
+                })
+            })
+        }, 1000);
+    </script>
 </body>
 
 </html>
